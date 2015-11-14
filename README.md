@@ -6,9 +6,9 @@ Provides abstractions to manipulate *Bounded Strings* and *Stream of Blocks* in 
 ## PackString.h
 ```c++
 #include "PackString.h"
-std::string s = "Hello, World!";
-std::array<char,5> a = PackString(s);
-std::string t = UnpackString(a);
+string s = "Hello, World!";
+array<char,5> a = PackString(s);
+string t = UnpackString(a);
 assert(t=="Hello");
 ```
 
