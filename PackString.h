@@ -1,5 +1,5 @@
 /* PackString.h
- * Este header facilita el manejo de strings de un tamaÒo variable
+ * Este header facilita el manejo de strings de un tama√±o variable
  * pero acotado, se base en arrays<char,N> y define 
  * PackString(s) y s = UnpackString(a)
  * 
@@ -11,14 +11,14 @@
  * Pero si se vuelve a aplicar:
  * 	 a=PackString(t), u=UnpackString(a)
  *   entonces se cumple t==a.
- * CaracterÌsticas de la soluciÛn:
- * - Los arreglos tienen un tamaÒo fijo.
- * - El tamaÒo del array denota la capacidad m·xima real de caracteres 
+ * Caracter√≠sticas de la soluci√≥n:
+ * - Los arreglos tienen un tama√±o fijo.
+ * - El tama√±o del array denota la capacidad m√°xima real de caracteres 
  *   del array, no la cantidad de caracteres menos uno.
- * - No requiere conocer conocer el concepto punteros para usar la soluciÛn.
+ * - No requiere conocer conocer el concepto punteros para usar la soluci√≥n.
  * - No requiere conocer conocer el concepto del centinela '\0' para usar
- *   la soluciÛn.
- * - El centinela se usa internamente para strings m·s cortos que el array 
+ *   la soluci√≥n.
+ * - El centinela se usa internamente para strings m√°s cortos que el array 
  *   que lo contiene.
  * 
  * Ejemplo de uso:
@@ -32,7 +32,7 @@
  *  std::string t = UnpackString(a);
  *  assert(t=="Hello");
  *
- * Prof. Esp. Ing. JosÈ MarÌa Sola
+ * Prof. Esp. Ing. Jos√© Mar√≠a Sola
  */
 
 #include <string>

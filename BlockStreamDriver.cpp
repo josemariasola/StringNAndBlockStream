@@ -1,7 +1,7 @@
 /* BlockStreamDriver.cpp
  * Test BlockStream: WriteBlock and ReadBlock
  * 20151109
- * Prof. Esp. Ing. José María Sola
+ * Prof. Esp. Ing. JosÃ© MarÃ­a Sola
  */
 
 #include <fstream>

@@ -1,7 +1,7 @@
 /* Escribe y lee archivo de registros con cadenas, 
  * muestra los empleados con legajo mayor a 10.
  * 20151108
- * Prof. Esp. Ing. José María Sola
+ * Prof. Esp. Ing. JosÃ© MarÃ­a Sola
  */
 
 #include <iostream>

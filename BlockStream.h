@@ -4,7 +4,7 @@
  * En este contexto bloque es un tipo de valor que no cotienen referencia a 
  * otros valores.
  * 20151108
- * Prof. Esp. Ing. José María Sola
+ * Prof. Esp. Ing. JosÃ© MarÃ­a Sola
  *
  * Ejemplo de uso:
  *  #include <fstream>

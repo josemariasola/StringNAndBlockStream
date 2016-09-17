@@ -1,6 +1,6 @@
 /* StringPackerDriver.cpp
  * 20151108
- * Prof. Esp. Ing. José María Sola
+ * Prof. Esp. Ing. JosÃ© MarÃ­a Sola
  */
 
 #include <string>
@@ -35,7 +35,7 @@ int main(){
 	cout << "t0       : " << t0 << '\n' << '\n';
 	assert(s0 == t0);
 	
-	//Empaqueta y desempaqueta un string más corto que el arreglo
+	//Empaqueta y desempaqueta un string mÃ¡s corto que el arreglo
 	array<char,7> a1 = PackString("abc"); // string literal
 	cout << "a1       : ";
 	PrintArrayWithString(a1);
@@ -45,7 +45,7 @@ int main(){
 	assert("abc" == t1);
 	
 	// Empaqueta y desempaqueta un string mas largo que el arreglo,
-	string s2="Texto muy largo que sobrepasa límites de uso en registros de datos";
+	string s2="Texto muy largo que sobrepasa lÃ­mites de uso en registros de datos";
 	cout
 		<< "s2       : " << s2          << '\n'
 		<< "sizeof s2: " << sizeof s2   << '\n'

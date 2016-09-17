@@ -1,7 +1,7 @@
 /* Escribe y lee archivo de registros, y muestra los cursos de 
- * primer año con cantidad de alumnos mayor a 25.
+ * primer aÃ±o con cantidad de alumnos mayor a 25.
  * 20151108
- * Prof. Esp. Ing. José María Sola
+ * Prof. Esp. Ing. JosÃ© MarÃ­a Sola
  */
 
 #include <iostream>
@@ -43,7 +43,7 @@ int main(){
 		if( curso.nivel == 1 and curso.alumnos > 25 )
 			cout
 				<< "Especialidad: " << curso.especialidad << ", "
-				<< "      Código: " << curso.codigo       << ", "
+				<< "      CÃ³digo: " << curso.codigo       << ", "
 				<< "       Nivel: " << curso.nivel        << ", "
 				<< "     Alumnos: " << curso.alumnos      << ", "
 				<< "    Promedio: " << curso.promedio     << '\n'
