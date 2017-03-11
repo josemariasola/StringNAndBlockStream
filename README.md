@@ -2,8 +2,8 @@
 Provides abstractions to manipulate *Bounded Strings* and *Stream of Blocks* in C++ with a cleaner syntax.
 
 *by Esp. Ing. José María Sola*
-Professor
-UTN FRBA
+_Professor_
+_UTN FRBA_
 
 
 ## StringPacker.h
