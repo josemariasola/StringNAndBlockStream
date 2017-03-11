@@ -7,7 +7,7 @@
 #include <array>
 #include <iostream>
 #include <cassert>
-#include "PackString.h"
+#include "StringPacker.h"
 
 template <std::size_t N>
 void PrintArrayWithString(const std::array<char,N>& a);

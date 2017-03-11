@@ -1,7 +1,9 @@
 /* Escribe y lee archivo de registros, y muestra los cursos de 
  * primer año con cantidad de alumnos mayor a 25.
  * 20151108
- * Prof. Esp. Ing. José María Sola
+ * Esp. Ing. José María Sola
+ * Profesor
+ * UTN FRBA
  */
 
 #include <iostream>

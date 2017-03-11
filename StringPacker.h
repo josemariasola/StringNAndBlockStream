@@ -1,4 +1,4 @@
-/* PackString.h
+/* StringPacker.h
  * Este header facilita el manejo de strings de un tamaño variable
  * pero acotado, se base en arrays<char,N> y define 
  * PackString(s) y s = UnpackString(a)
@@ -32,7 +32,9 @@
  *  std::string t = UnpackString(a);
  *  assert(t=="Hello");
  *
- * Prof. Esp. Ing. José María Sola
+ * Esp. Ing. José María Sola
+ * Profesor
+ * UTN FRBA
  */
 
 #include <string>
@@ -63,7 +65,7 @@ struct PackString{
 	}
 };
 
-/* Construct a string from an array up to the first null characater 
+/* Constructs a string from an array up to the first null characater 
  * or the end of the array
  */
 template<std::size_t N> 

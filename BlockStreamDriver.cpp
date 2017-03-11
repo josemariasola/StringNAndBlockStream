@@ -1,7 +1,9 @@
 /* BlockStreamDriver.cpp
  * Test BlockStream: WriteBlock and ReadBlock
  * 20151109
- * Prof. Esp. Ing. José María Sola
+ * Esp. Ing. José María Sola
+ * Profesor
+ * UTN FRBA
  */
 
 #include <fstream>
@@ -9,7 +11,7 @@
 #include <array>
 #include <cassert>
 #include "BlockStream.h"
-#include "PackString.h"
+#include "StringPacker.h"
 
 int main(){
 	using namespace std;

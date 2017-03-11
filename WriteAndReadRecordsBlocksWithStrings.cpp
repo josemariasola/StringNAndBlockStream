@@ -1,14 +1,16 @@
 /* Escribe y lee archivo de registros con cadenas, 
  * muestra los empleados con legajo mayor a 10.
  * 20151108
- * Prof. Esp. Ing. José María Sola
+ * Esp. Ing. José María Sola
+ * Profesor
+ * UTN FRBA
  */
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "BlockStream.h"
-#include "PackString.h"
+#include "StringPacker.h"
 
 int main(){
 	using namespace std;

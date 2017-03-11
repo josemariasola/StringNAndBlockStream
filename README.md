@@ -1,11 +1,14 @@
-# PackString and BlockStream
+# StringPacker and BlockStream
 Provides abstractions to manipulate *Bounded Strings* and *Stream of Blocks* in C++ with a cleaner syntax.
 
-*by Prof. Ing. José María Sola*
+*by Esp. Ing. José María Sola*
+Professor
+UTN FRBA
 
-## PackString.h
+
+## StringPacker.h
 ```c++
-#include "PackString.h"
+#include "StringPacker.h"
 string s = "Hello, World!";
 array<char,5> a = PackString(s);
 string t = UnpackString(a);
