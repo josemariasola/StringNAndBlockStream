@@ -40,7 +40,11 @@
 #include <string>
 #include <array>
 
-/* Provides the constructs to pack strings with a simple and clearn syntax:
+/* Implemantation based upon 
+http://stackoverflow.com/questions/8165659/why-cant-c-deduce-template-type-from-assignment
+*/
+
+/* Provides the constructs to pack strings with a simple and clear syntax:
  * a=PackString(s)
  */
 struct PackString{
