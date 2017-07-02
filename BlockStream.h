@@ -42,4 +42,3 @@ std::istream& ReadBlock(std::istream& in, T& block){
 		sizeof block
 	);
 }
-
