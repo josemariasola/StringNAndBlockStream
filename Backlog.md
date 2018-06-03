@@ -1,7 +1,7 @@
 # Backlog
 
 ## Requested
-- [ ] `BlockStreamDriver.cpp`: Remove `using namespace std;
+- [ ] `BlockStreamDriver.cpp`: Remove `using namespace std;`.
 - [ ] `BlockStreamDriver.cpp`: Use brace instead of constructors for both streams.
 - [ ] `BlockStreamDriver.cpp`: Remove equales for initialization.
 - [ ] `BlockStreamDriver.cpp`: Make it a test file, rename it?.
