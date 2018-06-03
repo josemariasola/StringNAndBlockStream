@@ -40,15 +40,29 @@ UTN FRBA */
 #include <string>
 #include <array>
 
-/* Implemantation based upon 
-http://stackoverflow.com/questions/8165659/why-cant-c-deduce-template-type-from-assignment
-*/
-
+// Type: String<N>
 template<size_t N> using String = std::array<char,N>;
 
+/* Builds a string from a String<N> upto its first null characater or end,
+e.g.: s=UnpackString(a) */
+template<std::size_t N> 
+inline std::string UnpackString(const String<N>& a){
+	std::string s{""};
+	
+	for(auto c : a){
+		if(c=='\0')
+			break;
+		s.push_back(c);
+	}
+	
+	return s;
+}
+
 /* Provides the constructs to pack strings with a simple and clear syntax:
- * a=PackString(s)
- */
+	a=PackString(s)
+Implemantation based upon 
+http://stackoverflow.com/questions/8165659/why-cant-c-deduce-template-type-from-assignment
+*/
 struct PackString{
 	std::string theString;
 	
@@ -70,20 +84,3 @@ struct PackString{
 	    return aString;
 	}
 };
-
-/* Constructs a string from a String<N> p to the first null characater 
- * or the end of the String<N>
- */
-template<std::size_t N> 
-inline std::string UnpackString(const String<N>& a){
-	using std::string;
-	string s;
-	
-	for(auto c : a){
-		if(c=='\0')
-			break;
-		s.push_back(c);
-	}
-	
-	return s;
-}
