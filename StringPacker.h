@@ -44,19 +44,23 @@
 http://stackoverflow.com/questions/8165659/why-cant-c-deduce-template-type-from-assignment
 */
 
+using std::size_t;
+using std::array;
+using std::string;
+
 /* Provides the constructs to pack strings with a simple and clear syntax:
  * a=PackString(s)
  */
 struct PackString{
-	std::string theString;
+	string theString;
 	
 	// Build from string
-	PackString(const std::string& aString) : theString(aString) {}
+	PackString(const string& aString) : theString(aString) {}
 	
 	// User-defined conversion: from string to array<char,N>
-	template<std::size_t N>
-	inline operator std::array<char, N>(){
-		std::array<char, N> anArray;
+	template<size_t N>
+	inline operator array<char, N>(){
+		array<char, N> anArray;
 		auto len = theString.length();
 		
 		if( len < N ){
@@ -72,9 +76,9 @@ struct PackString{
 /* Constructs a string from an array up to the first null characater 
  * or the end of the array
  */
-template<std::size_t N> 
-inline std::string UnpackString(const std::array<char,N>& a){
-	std::string s;
+template<size_t N> 
+inline string UnpackString(const array<char,N>& a){
+	string s;
 	
 	for(auto c : a){
 		if(c=='\0')
