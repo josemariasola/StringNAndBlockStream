@@ -48,6 +48,8 @@ using std::size_t;
 using std::array;
 using std::string;
 
+template<size_t N> using String = array<char,N>;
+
 /* Provides the constructs to pack strings with a simple and clear syntax:
  * a=PackString(s)
  */

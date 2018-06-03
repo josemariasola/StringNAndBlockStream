@@ -15,9 +15,9 @@
 #include "StringPacker.h"
 
 int main(){
-	struct { // Dos variables con tipo anónimo: par int, array de 25 chars.
+	struct { // Dos variables con tipo anónimo: par int, String de 25
 		int id;
-		std::array<char,25> name; 
+		String<25> name;  // Sinónimo de array<char,25>
 	} aBlock, anotherBlock;
 
 	constexpr auto filename{"people"}; // Nombre del archivo de prueba
