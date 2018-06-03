@@ -14,16 +14,14 @@
 #include "StringPacker.h"
 
 int main(){
-	using namespace std;
-	
 	struct {
 		int id;
-		array<char,25> name; 
+		std::array<char,25> name; 
 	} aBlock, anotherBlock;
 
 	constexpr auto filename{"people"};
 	
-	ofstream out{filename, ios::binary};
+	std::ofstream out{filename, std::ios::binary};
 	aBlock = {10, PackString("Joe")}; 
 	WriteBlock(out, aBlock);
 	std::cout
@@ -31,7 +29,7 @@ int main(){
 		<< UnpackString(aBlock.name) << '\n';
 	out.close();
 	
-	ifstream in{filename, ios::binary};
+	std::ifstream in{filename, std::ios::binary};
 	ReadBlock(in, anotherBlock);
 	assert(aBlock.id == anotherBlock.id);
 	assert(UnpackString(aBlock.name) == UnpackString(anotherBlock.name));
@@ -39,4 +37,3 @@ int main(){
 		<< anotherBlock.id << ' '
 		<< UnpackString(anotherBlock.name) << '\n';
 }
-
