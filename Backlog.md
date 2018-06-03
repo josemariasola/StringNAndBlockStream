@@ -1,5 +1,4 @@
 # Backlog
- // Dos variables de tipo anónimo.
 ## Requested
 - [ ] `BlockStreamDriver.cpp`: Make it a test file, rename it?.
 - [ ] `StringPacker.h`: Simplify header, move example to new file.
@@ -36,6 +35,7 @@
 ## In Progress
 
 ## Done
+- [x] `BlockStreamDriver.cpp`: Add comments.
 - [x] `BlockStreamDriver.cpp`: Remove `using namespace std;`.
 - [x] `BlockStreamDriver.cpp`: Use brace instead of constructors for both streams.
 - [x] `BlockStreamDriver.cpp`: Remove equales for initialization.
