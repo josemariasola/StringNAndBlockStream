@@ -32,10 +32,10 @@
  *  std::string t = UnpackString(a);
  *  assert(t=="Hello");
  *
- * Esp. Ing. José María Sola
- * Profesor
- * UTN FRBA
- */
+2015-11-08 - 2018-06-03
+Esp. Ing. José María Sola
+Professor
+UTN FRBA */
 
 #include <string>
 #include <array>
@@ -44,42 +44,39 @@
 http://stackoverflow.com/questions/8165659/why-cant-c-deduce-template-type-from-assignment
 */
 
-using std::size_t;
-using std::array;
-using std::string;
-
-template<size_t N> using String = array<char,N>;
+template<size_t N> using String = std::array<char,N>;
 
 /* Provides the constructs to pack strings with a simple and clear syntax:
  * a=PackString(s)
  */
 struct PackString{
-	string theString;
+	std::string theString;
 	
 	// Build from string
-	PackString(const string& aString) : theString(aString) {}
+	PackString(const std::string& aString) : theString(aString) {}
 	
-	// User-defined conversion: from string to array<char,N>
-	template<size_t N>
-	inline operator array<char, N>(){
-		array<char, N> anArray;
+	// User-defined conversion: from string to String<N>
+	template<std::size_t N>
+	inline operator String<N>(){
+		String<N> aString;
 		auto len = theString.length();
 		
 		if( len < N ){
-			theString.copy(anArray.data(), len);
-			anArray.at(len) = '\0';
+			theString.copy(aString.data(), len);
+			aString.at(len) = '\0';
 		}else
-			theString.copy(anArray.data(), N);
+			theString.copy(aString.data(), N);
 			
-	    return anArray;
+	    return aString;
 	}
 };
 
-/* Constructs a string from an array up to the first null characater 
- * or the end of the array
+/* Constructs a string from a String<N> p to the first null characater 
+ * or the end of the String<N>
  */
-template<size_t N> 
-inline string UnpackString(const array<char,N>& a){
+template<std::size_t N> 
+inline std::string UnpackString(const String<N>& a){
+	using std::string;
 	string s;
 	
 	for(auto c : a){
@@ -90,4 +87,3 @@ inline string UnpackString(const array<char,N>& a){
 	
 	return s;
 }
-

@@ -1,7 +1,8 @@
 /* StringPackerDriver.cpp
- * 20151108
- * Prof. Esp. Ing. José María Sola
- */
+2015-11-08 - 2018-06-03
+Esp. Ing. José María Sola
+Profesor
+UTN FRBA */
 
 #include <string>
 #include <array>
@@ -10,65 +11,93 @@
 #include "StringPacker.h"
 
 template <std::size_t N>
-void PrintArrayWithString(const std::array<char,N>& a);
-	
+void PrintSizesAndContents(std::string, std::array<char,N>, std::string);
+
 int main(){
-	// Sample in header
-	std::string s = "Hello, World!";
-    std::array<char,5> a = PackString(s);
-    std::string t = UnpackString(a);
-    assert(t=="Hello");
+	{ // Tests
+		{ // array más corto que string
+			std::array<char,5> a = PackString("Hello, World!");
+			assert( UnpackString(a) == "Hello" );
+		}
+		{ // String<N> más corto que string
+			String<4> s = PackString("Hello, World!");
+			assert( UnpackString(s) == "Hell" );
+		}
+		{ // String<N> igual de largo que string
+			String<13> s = PackString("Hello, World!");
+			assert( UnpackString(s) == "Hello, World!" );
+		}
+		{ // String<N> más largo que string
+			String<42> s = PackString("Hello, World!");
+			assert( UnpackString(s) == "Hello, World!" );
+		}
+	}
+		
+	{ // Ejemplos
+		using std::array;
+		using std::string;
 
-	using namespace std;
+		{ // String<N>
+			string    s = "Hello, World!";
+			String<5> a = PackString(s);
+			string    t = UnpackString(a);
+			assert( t == "Hello" );
+		}
+		
+		{ // array<char,N>
+			string        s = "Hello, World!";
+			array<char,5> a = PackString(s);
+			string        t = UnpackString(a);
+			assert( t == "Hello");
+		}
 
-	//Empaqueta y desempaqueta un string mas corto que el arreglo
-	string s0="1234"; // string type
-	cout
-		<< "s0       : " << s0          << '\n'
-		<< "sizeof s0: " << sizeof s0   << '\n'
-		<< "length s0: " << s0.length() << '\n';
-	array<char,7> a0 = PackString(s0);
-	cout << "a0       : ";
-	PrintArrayWithString(a0);
-	cout << '\n';
-	auto t0 = UnpackString(a0);
-	cout << "t0       : " << t0 << '\n' << '\n';
-	assert(s0 == t0);
-	
-	//Empaqueta y desempaqueta un string más corto que el arreglo
-	array<char,7> a1 = PackString("abc"); // string literal
-	cout << "a1       : ";
-	PrintArrayWithString(a1);
-	cout << '\n';
-	auto t1 = UnpackString(a1);
-	cout << "t1       : " << t1 << '\n' << '\n';
-	assert("abc" == t1);
-	
-	// Empaqueta y desempaqueta un string mas largo que el arreglo,
-	string s2="Texto muy largo que sobrepasa límites de uso en registros de datos";
-	cout
-		<< "s2       : " << s2          << '\n'
-		<< "sizeof s2: " << sizeof s2   << '\n'
-		<< "length s2: " << s2.length() << '\n';
-	array<char,12> a2 = PackString(s2); 
-	cout << "a2       : ";
-	PrintArrayWithString(a2);
-	cout << '\n';
-	auto t2 = UnpackString(a2); // desempaque todo lo que se pudo guardar
-	cout << "t2       : " << t2 << '\n' << '\n';
-	assert(s2.compare(0, 12, t2) == 0);
+		{ // String<N> más corto que string
+			string s = "Texto de largo mayor a límite de registro.";
+			String<12> a = PackString(s); // array<char,12>
+			auto t = UnpackString(a); // desempaque todo lo que se pudo guardar
+			assert(s.compare(0, 12, t) == 0);
+			PrintSizesAndContents(s,a,t);
+		}
 
-	// Simple test Packs a string and assigns
-	array<char,5> a3 = PackString("Hello, World!");
- 	assert(UnpackString(a3)=="Hello");
+		{ // String<N> igual de largo que string
+			string s = "abcd"; // string type
+			String<7> a = PackString(s); // array<char,7> 
+			auto t = UnpackString(a);
+			assert(s == t);
+			PrintSizesAndContents(s,a,t);
+		}
+		
+		{ // String<N> más largo que string
+			string s = "xyz";
+			array<char,7> a = PackString(s);
+			auto t = UnpackString(a);
+			assert(s == t);
+			PrintSizesAndContents(s,a,t);
+		}
+	}
 }
- 
+
 template <std::size_t N>
-void PrintArrayWithString(const std::array<char,N>& a){
-	for(auto c : a){
+void PrintStringInsideArray(const String<N>&);
+	
+template <std::size_t N>
+void PrintSizesAndContents(std::string s, std::array<char,N> a, std::string t){
+	std::cout
+		<< "s       : " << s          << "\n"
+		<< "sizeof s: " << sizeof s   << "\n"
+		<< "length s: " << s.length() << "\n"
+		<< "a       : "; PrintStringInsideArray(a); std::cout << "\n"
+		<< "sizeof a: " << sizeof a   << "\n"
+		<< "t       : " << t          << "\n"
+		<< "sizeof t: " << sizeof t   << "\n"
+		<< "length t: " << t.length() << "\n\n";
+}
+
+template <std::size_t N>
+void PrintStringInsideArray(const String<N>& s){
+	for(auto c : s){
 		if(c=='\0')
 			break;
 		std::cout << c; 
 	}
 }
-
