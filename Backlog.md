@@ -1,5 +1,6 @@
 # Backlog
 ## Requested
+### 2.0.0
 - [ ] `README.md`: Remove equals.
 - [ ] `README.md`: Add includes and scopes.
 - [ ] `README.md`: Include examples from source file.
@@ -9,9 +10,11 @@
 - [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove `using namespace std;`
 - [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Use brace instead of constructors for both streams.
 - [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove equales for initialization.
+### 2.1.0
 - [ ] Strings and Streams.adoc: Write it.
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
+### 3.0.0
 - [ ] Make `<<` and `>>` part of BlockStram.h, right now I can't work arround the ambiguities: `o<<block` `o<<aChar` `o<<aString`.
 - [ ] Incorporte Block Type
 	template<typename T>
@@ -31,12 +34,14 @@
 ## In Progress
 
 ## Done
+### 2.0.0
+- [x] Make new type: `String<N>` templated alias of `array<char,N>`.
 - [x] `StringPackerDriver.cpp`: Rename `PrintArrayWithString` to `PrintStringInsideArray`.
 - [x] `StringPackerDriver.cpp`: Make a print table function.
 - [x] `StringPackerDriver.cpp`: Remove `using namespace std`.
-- [x] Make new type: `String<N>` templated alias. of `array<char,N>`.
 - [x] `BlockStreamDriver.cpp`: Add comments.
 - [x] `BlockStreamDriver.cpp`: Remove `using namespace std;`.
 - [x] `BlockStreamDriver.cpp`: Use brace instead of constructors for both streams.
 - [x] `BlockStreamDriver.cpp`: Remove equales for initialization.
+### 1.0.0
 - [x] Rename `PackString.h` to `StringPacker.h`.
