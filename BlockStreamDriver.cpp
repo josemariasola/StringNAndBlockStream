@@ -21,9 +21,9 @@ int main(){
 		array<char,25> name; 
 	} aBlock, anotherBlock;
 
-	constexpr auto filename = "people";
+	constexpr auto filename{"people"};
 	
-	ofstream out(filename, ios::binary);
+	ofstream out{filename, ios::binary};
 	aBlock = {10, PackString("Joe")}; 
 	WriteBlock(out, aBlock);
 	std::cout
@@ -31,7 +31,7 @@ int main(){
 		<< UnpackString(aBlock.name) << '\n';
 	out.close();
 	
-	ifstream in(filename, ios::binary);
+	ifstream in{filename, ios::binary};
 	ReadBlock(in, anotherBlock);
 	assert(aBlock.id == anotherBlock.id);
 	assert(UnpackString(aBlock.name) == UnpackString(anotherBlock.name));
