@@ -9,31 +9,32 @@
 #include <fstream>
 #include <iostream> 
 #include <array>
-#include <cassert>
+#include <cassert> // TODO: Remember to remove when remove array
+#include <cstdio> // Pre C++17 // #include <filesystem> // C++17
 #include "BlockStream.h"
 #include "StringPacker.h"
 
 int main(){
-	struct {
+	struct { // Dos variables con tipo anónimo: par int, array de 25 chars.
 		int id;
 		std::array<char,25> name; 
 	} aBlock, anotherBlock;
 
-	constexpr auto filename{"people"};
+	constexpr auto filename{"people"}; // Nombre del archivo de prueba
 	
-	std::ofstream out{filename, std::ios::binary};
-	aBlock = {10, PackString("Joe")}; 
-	WriteBlock(out, aBlock);
-	std::cout
-		<< aBlock.id << ' '
-		<< UnpackString(aBlock.name) << '\n';
-	out.close();
+	std::ofstream out{filename, std::ios::binary}; // Crear archivo y conectar flujo en modo binario
+	aBlock = {10, PackString("Joe")}; // Asignar un int y un string empaquetado en un array de 25 chars
+	WriteBlock(out, aBlock); // Escribir en el flujo out aBlock
+	out.close(); // Cerrar conexión
+	std::cout << aBlock.id << ' '<< UnpackString(aBlock.name) << '\n'; // Salida de control
 	
-	std::ifstream in{filename, std::ios::binary};
-	ReadBlock(in, anotherBlock);
-	assert(aBlock.id == anotherBlock.id);
+	std::ifstream in{filename, std::ios::binary};  // Conectar flujo al archivo existente, en modo binario
+	ReadBlock(in, anotherBlock); // Leed del flujo in y guardar en anotherBlock
+	in.close(); // Cerrar conexión
+	remove(filename); // std::filesystem::remove(filename); // Remover el archivo de prueba
+	std::cout << anotherBlock.id << ' '<< UnpackString(anotherBlock.name) << '\n'; // Salida de control
+	
+	// Test: Verificar que leemos lo que habíamos escrito
+	assert(                aBlock.id == anotherBlock.id                ); 
 	assert(UnpackString(aBlock.name) == UnpackString(anotherBlock.name));
-	std::cout
-		<< anotherBlock.id << ' '
-		<< UnpackString(anotherBlock.name) << '\n';
 }
