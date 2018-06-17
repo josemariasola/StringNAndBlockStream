@@ -1,17 +1,17 @@
 # Backlog
 ## Requested
 ### 2.0.0
-- [ ] `README.md`: Remove equals.
+- [ ]! Strings and Streams.adoc: Write it.
+- [ ]! `README.md`: Remove equals.
+- [ ]! `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Use brace instead of constructors for both streams.
+- [ ]! `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove equales for initialization.
 - [ ] `README.md`: Add includes and scopes.
 - [ ] `README.md`: Include examples from source file.
 - [ ] `BlockStreamDriver.cpp`: Make it a test file, rename it, divide in two separatefiles?.
 - [ ] `StringPacker.h`: Simplify header, move example to new file or to adoc file.
 - [ ] `BlockStream.h`: Simplify header, move example to new file or to adoc file..
 - [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove `using namespace std;`
-- [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Use brace instead of constructors for both streams.
-- [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove equales for initialization.
 ### 2.1.0
-- [ ] Strings and Streams.adoc: Write it.
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
 ### 3.0.0
