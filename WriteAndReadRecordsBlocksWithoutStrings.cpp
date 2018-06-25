@@ -11,39 +11,30 @@
 #include "BlockStream.h"
 
 int main(){
-	using namespace std;
-	
-	struct {
+	struct Curso{
 		char especialidad;
 		int codigo;
 		int nivel;
 		int alumnos;
 		double promedio;
-	} curso;
+	};
 	
-	constexpr auto filename = "cursos";
+	constexpr auto filename{"cursos"};
 
-	ofstream out(filename, ios::binary);
+	std::ofstream out(filename, std::ios::binary);
 
-	curso = {'K', 1051, 1, 29, 7.8};
-	WriteBlock(out, curso);
-	
-	curso = {'R', 4152, 4, 41, 6.66};
-	WriteBlock(out, curso);
-
-	curso = {'K', 2051, 1, 22, 6.7};
-	WriteBlock(out, curso);
-
-	curso = {'K', 2011, 1, 26, 7.9};
-	WriteBlock(out, curso);
+	WriteBlock(out, Curso{'K', 1051, 1, 29, 7.8});
+	WriteBlock(out, Curso{'R', 4152, 4, 41, 6.6});
+	WriteBlock(out, Curso{'K', 2051, 1, 22, 6.7});
+	WriteBlock(out, Curso{'K', 2011, 1, 26, 7.9});
 
 	out.close();
 	
-	ifstream in(filename, ios::binary);
+	std::ifstream in(filename, std::ios::binary);
 	
-	while( ReadBlock(in, curso) )
+	for(Curso curso; ReadBlock(in, curso) ;)
 		if( curso.nivel == 1 and curso.alumnos > 25 )
-			cout
+			std::cout
 				<< "Especialidad: " << curso.especialidad << ", "
 				<< "      Código: " << curso.codigo       << ", "
 				<< "       Nivel: " << curso.nivel        << ", "
