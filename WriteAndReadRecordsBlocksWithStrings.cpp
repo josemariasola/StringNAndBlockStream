@@ -19,6 +19,7 @@ int main(){
 	};
 
 	constexpr auto filename{"people"};
+
 	std::ofstream out{filename, std::ios::binary};
 
 	WriteBlock(out, Block{10, PackString("Bruce")});
