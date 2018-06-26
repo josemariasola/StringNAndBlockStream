@@ -13,26 +13,29 @@ UTN FRBA */
 #include "StringPacker.h"
 
 int main(){
-	struct { // Dos variables con tipo anónimo: par (int, String de máximo 25 caracteres)
+	struct Block{ // Block: par (int, String de máximo 25 caracteres)
 		int id;
-		String<25> name;  // Sinónimo de array<char,25>
-	} aBlock, anotherBlock;
+		String<25> name; // Sinónimo de array<char,25>
+	};
 
 	constexpr auto filename{"people"}; // Nombre del archivo de prueba
 	
+	// Write
 	std::ofstream out{filename, std::ios::binary}; // Crear archivo y conectar flujo en modo binario
-	aBlock = {10, PackString("Joe")}; // Asignar par, empaquetar el string en un String de máximo 25 caracteres
-	WriteBlock(out, aBlock); // Escribir en el flujo out aBlock
+	Block x{10, PackString("Joe")}; // Asignar par, empaquetar el string en un String de máximo 25 caracteres
+	WriteBlock(out, x); // Escribir en el flujo out aBlock
 	out.close(); // Cerrar conexión
-	std::cout << aBlock.id << ' '<< UnpackString(aBlock.name) << '\n'; // Salida de control
+	std::cout << x.id << ' '<< UnpackString(x.name) << '\n'; // Salida de control
 	
+	// Read
 	std::ifstream in{filename, std::ios::binary};  // Conectar flujo al archivo existente, en modo binario
-	ReadBlock(in, anotherBlock); // Leed del flujo in y guardar en anotherBlock
+	Block y;
+	ReadBlock(in, y); // Leed del flujo in y guardar en anotherBlock
 	in.close(); // Cerrar conexión
 	remove(filename); // c++17 // std::filesystem::remove(filename); // Remover el archivo de prueba
-	std::cout << anotherBlock.id << ' '<< UnpackString(anotherBlock.name) << '\n'; // Salida de control
+	std::cout << y.id << ' '<< UnpackString(y.name) << '\n'; // Salida de control
 	
 	// Test: Verificar que leemos lo que habíamos escrito
-	assert(                aBlock.id == anotherBlock.id                ); 
-	assert(UnpackString(aBlock.name) == UnpackString(anotherBlock.name));
+	assert(                x.id == y.id                ); 
+	assert(UnpackString(x.name) == UnpackString(y.name));
 }

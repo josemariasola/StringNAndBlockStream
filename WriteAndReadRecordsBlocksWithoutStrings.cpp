@@ -21,7 +21,7 @@ int main(){
 	
 	constexpr auto filename{"cursos"};
 
-	std::ofstream out(filename, std::ios::binary);
+	std::ofstream out{filename, std::ios::binary};
 
 	WriteBlock(out, Curso{'K', 1051, 1, 29, 7.8});
 	WriteBlock(out, Curso{'R', 4152, 4, 41, 6.6});
@@ -30,7 +30,7 @@ int main(){
 
 	out.close();
 	
-	std::ifstream in(filename, std::ios::binary);
+	std::ifstream in{filename, std::ios::binary};
 	
 	for(Curso curso; ReadBlock(in, curso) ;)
 		if( curso.nivel == 1 and curso.alumnos > 25 )

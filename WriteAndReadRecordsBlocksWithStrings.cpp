@@ -13,34 +13,27 @@
 #include "StringPacker.h"
 
 int main(){
-	using namespace std;
-	
-	struct {
+	struct Block{
 		int id;
-		array<char,25> name; // instead of string name;
-	} emp;
+		String<25> name; // instead of string name;
+	};
 
-	constexpr auto filename = "people";
-	ofstream out(filename, ios::binary);
+	constexpr auto filename{"people"};
+	std::ofstream out{filename, std::ios::binary};
 
-	emp = {10, PackString("Bruce")}; // instead of emp = {10, "Bruce"};
-	WriteBlock(out, emp);
-	
-	emp = {11, PackString("Clark")};
-	WriteBlock(out, emp);
-
-	emp = {12, PackString("Joseph")};
-	WriteBlock(out, emp);
+	WriteBlock(out, Block{10, PackString("Bruce")});
+	WriteBlock(out, Block{11, PackString("Clark")});
+	WriteBlock(out, Block{12, PackString("Joseph")});
 
 	out.close();
 	
-	ifstream in(filename, ios::binary);
+	std::ifstream in{filename, std::ios::binary};
 	
-	while( ReadBlock(in, emp) )
-		if( emp.id > 10 )
-			cout
-				<< emp.id << ", "
-				<< UnpackString(emp.name)
+	for(Block b; ReadBlock(in, b); )
+		if( b.id > 10 )
+			std::cout
+				<< b.id << ", "
+				<< UnpackString(b.name)
 				<< '\n';
 
 	in.close();
