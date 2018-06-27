@@ -72,7 +72,7 @@ struct PackString{
 	// User-defined conversion: from string to String<N>
 	template<std::size_t N>
 	inline operator String<N>(){
-		String<N> aString;
+		String<N> aString{};
 		auto len = theString.length();
 		
 		if( len < N ){
