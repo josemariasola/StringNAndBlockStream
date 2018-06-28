@@ -2,12 +2,21 @@
 #include <cassert>
 int main(){
 	struct Color{unsigned char r,g,b;};
-	std::ofstream out("color", std::ios::binary);
+
+	auto filename{"color.bin"};
+	
+	std::ofstream out(filename, std::ios::binary);
 	WriteBlock(out, Color{70,30,180});
-	std::ifstream in("color", std::ios::binary);
+	out.close();
+
+	std::ifstream in(filename, std::ios::binary);
 	Color steelBlue;
 	ReadBlock(in, steelBlue);
+	in.close();
+	
 	assert( 70 == steelBlue.r);
 	assert( 30 == steelBlue.g);
 	assert(180 == steelBlue.b);
+	
+	//remove(filename); // c++17 // std::filesystem::remove(filename); // Remover el archivo de prueba
 }
