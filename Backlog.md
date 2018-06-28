@@ -1,7 +1,6 @@
 # Backlog
 ## Requested
 ### 2.0.0
-- [ ] !!! StringPackerDriver: Use braces for initialization.
 - [ ] !! Strings and Streams.adoc: Write it.
 - [ ] ! `README.md`: Remove equals.
 - [ ] `README.md`: Add includes and scopes.
@@ -15,6 +14,12 @@
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
 ### 3.0.0
 - [ ] Make `<<` and `>>` part of BlockStram.h, right now I can't work arround the ambiguities: `o<<block` `o<<aChar` `o<<aString`.
+- [ ] Invorporate full StringN type.
+- [ ] Allow 
+std::array<char,5> a{PackString("Hello, World!")}; 
+instead of 
+std::array<char,5> a = PackString("Hello, World!");
+Initializer list?
 - [ ] Incorporte Block Type
 	template<typename T>
 	struct Blockk{T data;};
@@ -34,6 +39,7 @@
 
 ## Done
 ### 2.0.0
+- [x] !!! StringPackerDriver: Use braces for initialization, when possible.
 - [x] ! WriteAndReadRecordsBlocksWithStrings: use a temporary or litertal instead of variable in `WriteBlock(...);`
 - [x] ! WriteAndReadRecordsBlocksWithoutStrings: use a temporary or litertal instead of variable in `WriteBlock(...);`
 - [x] ! `StringPackerDriver.cpp`: Remove `using namespace std`.
