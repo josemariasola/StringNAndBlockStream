@@ -11,7 +11,7 @@ UTN FRBA */
 #include "StringPacker.h"
 
 template <std::size_t N>
-void PrintSizesAndContents(std::string, std::array<char,N>, std::string);
+void PrintSizesAndContents(std::string, String<N>, std::string);
 
 int main(){
 	{ // Tests
@@ -40,19 +40,19 @@ int main(){
 		{ // String<N>
 			string    s{"Hello, World!"};
 			String<5> a = PackString(s);
-			string    t = UnpackString(a);
+			string    t{UnpackString(a)};
 			assert( t == "Hello" );
 		}
 		
 		{ // array<char,N>
 			string        s{"Hello, World!"};
 			array<char,5> a = PackString(s);
-			string        t = UnpackString(a);
+			string        t{UnpackString(a)};
 			assert( t == "Hello");
 		}
 
 		{ // String<N> más corto que string
-			string s = "Texto de largo mayor a límite de registro.";
+			string s{"Texto de largo mayor a límite de registro."};
 			String<12> a = PackString(s); // array<char,12>
 			auto t{UnpackString(a)}; // desempaque todo lo que se pudo guardar
 			assert(s.compare(0, 12, t) == 0);
@@ -60,7 +60,7 @@ int main(){
 		}
 
 		{ // String<N> igual de largo que string
-			string s = "abcd"; // string type
+			string s{"abcd"}; // string type
 			String<7> a = PackString(s); // array<char,7> 
 			auto t{UnpackString(a)};
 			assert(s == t);
@@ -68,7 +68,7 @@ int main(){
 		}
 		
 		{ // String<N> más largo que string
-			string s = "xyz";
+			string s{"xyz"};
 			array<char,7> a = PackString(s);
 			auto t{UnpackString(a)};
 			assert(s == t);
@@ -78,7 +78,7 @@ int main(){
 }
 
 template <std::size_t N>
-void PrintStringInsideArray(const String<N>&);
+void PrintString(const String<N>&);
 	
 template <std::size_t N>
 void PrintSizesAndContents(std::string s, String<N> a, std::string t){
@@ -86,7 +86,7 @@ void PrintSizesAndContents(std::string s, String<N> a, std::string t){
 		<< "s       : " << s          << "\n"
 		<< "sizeof s: " << sizeof s   << "\n"
 		<< "length s: " << s.length() << "\n"
-		<< "a       : "; PrintStringInsideArray(a); std::cout << "\n"
+		<< "a       : "; PrintString(a); std::cout << "\n"
 		<< "sizeof a: " << sizeof a   << "\n"
 		<< "t       : " << t          << "\n"
 		<< "sizeof t: " << sizeof t   << "\n"
@@ -94,7 +94,7 @@ void PrintSizesAndContents(std::string s, String<N> a, std::string t){
 }
 
 template <std::size_t N>
-void PrintStringInsideArray(const String<N>& s){
+void PrintString(const String<N>& s){
 	for(auto c : s){
 		if(c=='\0')
 			break;
