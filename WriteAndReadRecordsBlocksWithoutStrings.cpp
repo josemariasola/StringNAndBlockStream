@@ -7,7 +7,6 @@
  */
 
 #include <iostream>
-#include <fstream>
 #include "BlockStream.h"
 
 int main(){
