@@ -72,12 +72,12 @@ struct PackString{
 	// User-defined conversion: from string to String<N>
 	template<std::size_t N>
 	inline operator String<N>(){
-		String<N> aString;
+		String<N> aString; // undefined content
 		auto len = theString.length();
 		
 		if( len < N ){
 			theString.copy(aString.data(), len);
-			aString.at(len) = '\0';
+			aString.at(len) = '\0'; // form aString.at(len+1) to aString.at(N-1) undefined content.
 		}else
 			theString.copy(aString.data(), N);
 			
