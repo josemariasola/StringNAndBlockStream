@@ -8,7 +8,7 @@ UTN FRBA */
 #include <array>
 #include <iostream>
 #include <cassert>
-#include "StringPacker.h"
+#include "StringN.h"
 
 template <std::size_t N>
 void PrintSizesAndContents(std::string, String<N>, std::string);

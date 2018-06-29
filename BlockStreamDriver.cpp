@@ -10,7 +10,7 @@ UTN FRBA */
 #include <cassert>
 #include <cstdio> // Pre C++17 // #include <filesystem> // C++17
 #include "BlockStream.h"
-#include "StringPacker.h"
+#include "StringN.h"
 
 int main(){
 	struct Block{ // Block: par (int, String de máximo 25 caracteres)
