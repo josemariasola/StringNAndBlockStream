@@ -7,13 +7,11 @@
  */
 
 #include <iostream>
-#include <fstream>
-#include <string>
 #include "BlockStream.h"
-#include "StringPacker.h"
+#include "StringN.h"
 
 int main(){
-	struct Block{
+	struct Person{
 		int id;
 		String<25> name; // instead of string name;
 	};
@@ -22,19 +20,19 @@ int main(){
 
 	std::ofstream out{filename, std::ios::binary};
 
-	WriteBlock(out, Block{10, PackString("Bruce")});
-	WriteBlock(out, Block{11, PackString("Clark")});
-	WriteBlock(out, Block{12, PackString("Joseph")});
+	WriteBlock(out, Person{10, PackString("Bruce")});  // Wayne
+	WriteBlock(out, Person{11, PackString("Clark")});  // Kent
+	WriteBlock(out, Person{12, PackString("Joseph")}); // Dredd
 
 	out.close();
 	
 	std::ifstream in{filename, std::ios::binary};
 	
-	for(Block b; ReadBlock(in, b); )
-		if( b.id > 10 )
+	for(Person p; ReadBlock(in, p); )
+		if( p.id > 10 )
 			std::cout
-				<< b.id << ", "
-				<< UnpackString(b.name)
+				<< p.id << ", "
+				<< UnpackString(p.name)
 				<< '\n';
 
 	in.close();
