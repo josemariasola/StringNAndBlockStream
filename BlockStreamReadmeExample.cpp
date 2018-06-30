@@ -14,7 +14,7 @@ int main(){
 	std::ifstream in{filename, std::ios::binary};  // Connect to read.
 	Color steelBlue;                               // Object to store read data.                   
 	ReadBlock(in, steelBlue);                      // Read from in.
-	in.close();                                    // Disconcect,
+	in.close();                                    // Disconcect.
 
 	remove(filename); // C++17 // std::filesystem::remove(filename); 
 	
