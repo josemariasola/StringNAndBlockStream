@@ -8,11 +8,18 @@
 - [ ] `BlockStreamDriver.cpp`: Make it a test file, rename it, divide in two separatefiles?.
 ### 2.1.0 (Medium)
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
+- [ ] Add static_assert(std::is_pod<T>::value, "T must be POD");
+	or
+	is_trivial
+	or
+	is_standard_layout
+	En este contexto bloque es un tipo de valor que no contenga referencias o punteros. 
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
+- [ ] Add Continuous Integration.
 ### 3.0.0 (Low)
 - [ ] Add to Read and Write optional parameter n that defaults to 1.
 - [ ] Make `<<` and `>>` part of BlockStram.h, right now I can't work arround the ambiguities: `o<<block` `o<<aChar` `o<<aString`.
-- [ ] Invorporate full StringN type.
+- [ ] Incorporate full StringN type.
 - [ ] Allow 
 std::array<char,5> a{PackString("Hello, World!")}; 
 instead of 
