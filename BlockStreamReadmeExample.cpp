@@ -1,3 +1,9 @@
+/* BlockStreamTest.cpp
+2015-11-09 - 2018-06-30
+Esp. Ing. José María Sola
+Profesor
+UTN FRBA */
+
 #include "BlockStream.h"
 #include <cassert>
 
@@ -7,17 +13,20 @@ int main(){
 
 	constexpr auto filename{"color.bin"};
 	
-	std::ofstream out{filename, std::ios::binary}; // Connect to write.
+	// Write
+	std::ofstream out{filename, std::ios::binary}; // Create and connect to write.
 	WriteBlock(out, Color{70,130,180});            // Write to out.
 	out.close();                                   // Disconnect.
 
+	// Read
 	std::ifstream in{filename, std::ios::binary};  // Connect to read.
-	Color steelBlue;                               // Object to store read data.                   
+	Color steelBlue;                               // Object to store read data.
 	ReadBlock(in, steelBlue);                      // Read from in.
 	in.close();                                    // Disconcect.
 
 	remove(filename); // C++17 // std::filesystem::remove(filename); 
 	
+	// Test
 	assert(  70 == steelBlue.red   );
 	assert( 130 == steelBlue.green );
 	assert( 180 == steelBlue.blue  );
