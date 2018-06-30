@@ -2,13 +2,10 @@
 ## Requested
 ### 2.0.0 (High priority)
 - [ ] !! Strings and Streams.adoc: Write it.
-- [ ] ! `README.md`: Remove equals.
-- [ ] `README.md`: Add includes and scopes.
-- [ ] `README.md`: Include examples from source file.
+- [ ] `StringN.h`: Simplify header, move example to new file or to adoc file.
+- [ ] `BlockStream.h`: Simplify header, move example to new file or to adoc file.
+- [ ] Transalte readme comments to ES.
 - [ ] `BlockStreamDriver.cpp`: Make it a test file, rename it, divide in two separatefiles?.
-- [ ] `StringPacker.h`: Simplify header, move example to new file or to adoc file.
-- [ ] `BlockStream.h`: Simplify header, move example to new file or to adoc file..
-- [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove `using namespace std;`
 ### 2.1.0 (Medium)
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
@@ -41,16 +38,20 @@ Initializer list?
 ## Done
 ### 2.0.0
 - [x] !!! StringPackerDriver: Use braces for initialization, when possible.
+- [x] ! `README.md`: Remove equals.
 - [x] ! WriteAndReadRecordsBlocksWithStrings: use a temporary or litertal instead of variable in `WriteBlock(...);`
 - [x] ! WriteAndReadRecordsBlocksWithoutStrings: use a temporary or litertal instead of variable in `WriteBlock(...);`
 - [x] ! `StringPackerDriver.cpp`: Remove `using namespace std`.
 - [x] ! `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Use for instead of while.
 - [x] ! `WriteAndReadRecordsBlocksWithStrings.cpp`: Use for instead of while.
 - [x] ! `WriteAndReadRecordsBlocksWithStrings.cpp`: Remove `using namespace std`.
+- [x] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove `using namespace std;`
 - [x] ! `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove equales for initialization.
 - [x] ! `WriteAndReadRecordsBlocksWithStrings.cpp`: Remove equales for initialization.
 - [x] ! `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Use brace instead of constructors for both streams.
 - [x] ! `WriteAndReadRecordsBlocksWithStrings.cpp`: Use brace instead of constructors for both streams.
+- [x] `README.md`: Add includes and scopes.
+- [x] `README.md`: Include examples from source file.
 - [x] Make new type: `String<N>` templated alias of `array<char,N>`.
 - [x] `StringPackerDriver.cpp`: Rename `PrintArrayWithString` to `PrintStringInsideArray`.
 - [x] `StringPackerDriver.cpp`: Make a print table function.
