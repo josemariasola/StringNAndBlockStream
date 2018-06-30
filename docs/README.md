@@ -25,27 +25,27 @@ Just copy the header `StringN.h` to your C++ project folder, include it in your 
 ```
 
 ## BlockStream
-Using the standard functions `read` and `write` can be cumbersome and requieres the use of low level concepts. These are example statements that use those funcitons:
+Using the standard functions `read` and `write` can be cumbersome and requieres the use of low level concepts. These are example statements that use those two funcitons:
 
 	out.write(reinterpret_cast<char*>(&block),sizeof block);
 	in.read(reinterpret_cast<const char*>(&block),sizeof block);
+
+Each time we need to write o read, we end up copy-pasting that un-intuitive boilerplate code.
 
 They requiere:
 - Three arguments (the stream, the start of the character block, its size).
 - One `reinterpret_cast`.
 - Use of a pointer type.
 - Use of the address-of operator (`&`).
-- And in the case of `read` use of const.
+- And in the case of `read`, use of `const`.
 
-Each time you need to write o read, you end up copy-pasting that boilerplate code.
-
-The header `BlockStream.h` abstracts out all six items, with a cleaner an simple syntax:
+The header `BlockStream.h` abstracts out all six items, with a cleaner an simpler syntax:
 
 	WriteBlock(out, block);
 	ReadBlock(in, block);
 
 ### How do I use it?
-Just copy the header `BlockStream.h` to your C++ project folder, include it in your source files, and writing and reading blocks to file streams.
+Just copy the header `BlockStream.h` to your C++ project folder, include it in your source files, and start writing and reading blocks to and from file streams.
 
 ```c++
 #include "BlockStream.h"
@@ -101,27 +101,27 @@ Con simplemente copiar el encabezado `StringN.h` a su carpeta de proyecto C++, e
 ```
 
 ## BlockStream
-Using the standard functions `read` and `write` can me cumbersome and requieres the use of low level concepts. These are example statements that use those funcitons:
+Usar las funciones estdándar `read` y `write` puede ser incómodo y requiere el suto de conceptos de bajo nivel. Estos son ejemplos de sentencias que usan esas dos funciones:
 
 	out.write(reinterpret_cast<char*>(&block),sizeof block);
 	in.read(reinterpret_cast<const char*>(&block),sizeof block);
 
-They requiere:
-- Three arguments (the stream, the start of the character block, its size).
-- One `reinterpret_cast`.
-- Use of a pointer type.
-- Use of the address-of operator (`&`).
-- And in the case of `read` use of const.
+Cada vez que necesitamos usar `write` o `read`, terminamos copiando-y-pegando ese código repetitivo y poco intuitivo.
 
-Each time you need to write o read, you end up copy-pasting that boilerplate code.
+El uso requiere:
+- Tres argumentos (el flujo, el comienzo del bloque de caracteres, su tamaño).
+- Un `reinterpret_cast`.
+- Usar un tipo puntero.
+- Usar el operador dirección-de (`&`).
+- Y en el caso de `read`, usar `const`.
 
-The header `BlockStream.h` abstracts out all six items, with a cleaner an simple syntax:
+El ecanbezado `BlockStream.h` abstrae los seís ítems, con una sintaxis más clara y simple:
 
 	WriteBlock(out, block);
 	ReadBlock(in, block);
 
 ### ¿Cómo lo uso?
-Just copy the header `BlockStream.h` to your C++ project folder, include it in your source files, and writing and reading blocks to file streams.
+Con simplemente copiar el encabezado `BlockStream.h` a su carpeta de proyecto C++, e incluirlo en sus archivos fuente, ya es posible escribir y leer bloques a y desde flujos.
 
 ```c++
 #include "BlockStream.h"
