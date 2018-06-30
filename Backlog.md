@@ -1,6 +1,6 @@
 # Backlog
 ## Requested
-### 2.0.0
+### 2.0.0 (High priority)
 - [ ] !! Strings and Streams.adoc: Write it.
 - [ ] ! `README.md`: Remove equals.
 - [ ] `README.md`: Add includes and scopes.
@@ -9,10 +9,11 @@
 - [ ] `StringPacker.h`: Simplify header, move example to new file or to adoc file.
 - [ ] `BlockStream.h`: Simplify header, move example to new file or to adoc file..
 - [ ] `WriteAndReadRecordsBlocksWithoutStrings.cpp`: Remove `using namespace std;`
-### 2.1.0
+### 2.1.0 (Medium)
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
-### 3.0.0
+### 3.0.0 (Low)
+- [ ] Add to Read and Write optional parameter n that defaults to 1.
 - [ ] Make `<<` and `>>` part of BlockStram.h, right now I can't work arround the ambiguities: `o<<block` `o<<aChar` `o<<aString`.
 - [ ] Invorporate full StringN type.
 - [ ] Allow 
