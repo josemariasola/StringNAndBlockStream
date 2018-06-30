@@ -1,29 +1,11 @@
 /* BlockStream.h
- * Este header facilita la lectura y escritura de bloques desde flujos mediante
- * dos funciones: WriteBlock y ReadBlock.
- * En este contexto bloque es un tipo de valor que no cotienen referencia a 
- * otros valores.
- * 20151108
- * Esp. Ing. José María Sola
- * Profesor
- * UTN FRBA
- *
- * Ejemplo de uso:
- *  #include <fstream>
- *  #include "BlockStream.h"
- *
- *  using namespace std;
- *
- *  T block = {...}; // e.g., struct T {double x,y;};
- *  T must be a "self-contained" type:
- *  static_assert(std::is_pod<T>::value, "T must be POD");
- *
- *  ofstream out("filename", ios::binary);
- *  WriteBlock(out, block);
- *
- *  ifstream in("filename", ios::binary);
- *  ReadBlock(in, block);
- */
+2015-11-08 - 2018-06-30
+Esp. Ing. José María Sola
+Profesor
+UTN FRBA */
+
+#ifndef HEADER_BLOCKSTREAM_INCLUDED
+#define HEADER_BLOCKSTREAM_INCLUDED
 
 #include <fstream>
 
@@ -42,3 +24,5 @@ std::istream& ReadBlock(std::istream& in, T& block){
 		sizeof block
 	);
 }
+
+#endif
