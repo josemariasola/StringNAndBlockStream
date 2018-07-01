@@ -25,7 +25,7 @@ int main(){
 ```
 ### Examples
 - [Previous example](StringNTest.cpp)
-- [](StringNDriver.cpp)
+- [StringNDriver.cpp](StringNDriver.cpp)
 
 ## BlockStream
 Using the standard functions `read` and `write` can be cumbersome and requieres the use of low level concepts. These are example statements that use those two funcitons:
@@ -80,13 +80,13 @@ int main(){
 ```
 ### Examples
 - [Previous example](BlockStreamTest.cpp)
-- [](BlockStreamriver.cpp)
+- [BlockStreamriver.cpp](BlockStreamriver.cpp)
 
 ## StringN and BlockStream Together
 When combined, these headers allow easy manipulation of streams of fixed size records with bounded strings in them:
 
-- [](BlockStreamAndStringNTest.cpp)
-- [](BlockStreamAndStringNDriver.cpp)
+- [BlockStreamAndStringNTest.cpp](BlockStreamAndStringNTest.cpp)
+- [BlockStreamAndStringNDriver.cpp](BlockStreamAndStringNDriver.cpp)
 
 # (ES) ¿Qué son StringN y BlockStream?
 Son dos headers que proveen abstracciones para manipular *Cadenas Acotadas* y *Flujo de Bloques* en C++ con una sintaxis clara.
@@ -114,8 +114,8 @@ int main(){
 }
 ```
 ### Ejemplos
-- [(]Ejemplo anterior](StringNTest.cpp)
-- [](StringNDriver.cpp)
+- [Ejemplo anterior](StringNTest.cpp)
+- [StringNDriver.cpp](StringNDriver.cpp)
 
 
 ## BlockStream
@@ -171,11 +171,11 @@ int main(){
 ```
 
 ### Ejemplos
-- [Previous example](BlockStreamTest.cpp)
-- [](BlockStreamriver.cpp)
+- [Ejemplo anterior](BlockStreamTest.cpp)
+- [BlockStreamriver.cpp](BlockStreamriver.cpp)
 
 ## StringN y BlockStream Juntos
 Cuando se combinan, estos encabezados permiten una manipulación fácil de flujos de registros de tamaño fijo con cadenas acotadas.
 
-- [](BlockStreamAndStringNTest.cpp)
-- [](BlockStreamAndStringNDriver.cpp)
+- [BlockStreamAndStringNTest.cpp](BlockStreamAndStringNTest.cpp)
+- [BlockStreamAndStringNDriver.cpp](BlockStreamAndStringNDriver.cpp)
