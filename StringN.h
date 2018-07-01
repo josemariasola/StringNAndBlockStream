@@ -11,7 +11,7 @@ UTN FRBA */
 #include <array>
 
 // Type: String<N>
-template<size_t N> using String = std::array<char,N>;
+template<std::size_t N> using String = std::array<char,N>;
 
 /* Builds a string from a String<N> upto its first null characater or end,
 e.g.: s=UnpackString(a) */
