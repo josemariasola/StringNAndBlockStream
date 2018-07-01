@@ -2,10 +2,7 @@
 ## Requested
 ### 2.0.0 (High priority)
 - [ ] !! Strings and Streams.adoc: Write it.
-- [ ] `StringN.h`: Simplify header, move example to new file or to adoc file.
-- [ ] `BlockStream.h`: Simplify header, move example to new file or to adoc file.
 - [ ] Transalte readme comments to ES.
-- [ ] `BlockStreamDriver.cpp`: Make it a test file, rename it, divide in two separatefiles?.
 ### 2.1.0 (Medium)
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add static_assert(std::is_pod<T>::value, "T must be POD");
@@ -67,5 +64,8 @@ Initializer list?
 - [x] `BlockStreamDriver.cpp`: Remove `using namespace std;`.
 - [x] `BlockStreamDriver.cpp`: Use brace instead of constructors for both streams.
 - [x] `BlockStreamDriver.cpp`: Remove equales for initialization.
+- [x] `StringN.h`: Simplify header, move example to new file or to adoc file.
+- [x] `BlockStream.h`: Simplify header, move example to new file or to adoc file.
+- [x] `BlockStreamDriver.cpp`: Make it a test file, rename it, divide in two separatefiles?.
 ### 1.0.0
 - [x] Rename `PackString.h` to `StringPacker.h`.
