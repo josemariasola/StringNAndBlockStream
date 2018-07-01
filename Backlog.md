@@ -1,9 +1,7 @@
 # Backlog
 ## Requested
-### 2.0.0 (High priority)
-- [ ] New release.
-- [ ] Write release notes.
 ### 2.1.0 (Medium priority)
+- [ ] Continue reviews of Silva's pull requests.
 - [ ] Transalte readme comments to ES.
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add static_assert(std::is_pod<T>::value, "T must be POD");
@@ -41,7 +39,7 @@ Initializer list?
 ## In Progress
 
 ## Done
-### 2.0.0
+### 2.0.0 (High priority)
 - [x] !!! StringPackerDriver: Use braces for initialization, when possible.
 - [x] ! `README.md`: Remove equals.
 - [x] ! WriteAndReadRecordsBlocksWithStrings: use a temporary or litertal instead of variable in `WriteBlock(...);`
@@ -68,5 +66,8 @@ Initializer list?
 - [x] `StringN.h`: Simplify header, move example to new file or to adoc file.
 - [x] `BlockStream.h`: Simplify header, move example to new file or to adoc file.
 - [x] `BlockStreamDriver.cpp`: Make it a test file, rename it, divide in two separatefiles?.
+- [x] Check Pull requests from Silva.
+- [x] New release.
+- [x] Write release notes.
 ### 1.0.0
 - [x] Rename `PackString.h` to `StringPacker.h`.
