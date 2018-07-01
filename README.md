@@ -11,7 +11,7 @@ The standard type `std::string` provide strings with dynamic and unbounded lengt
 The type `String<N>` provides a solution, based upon a template type that wraps a `std::array<char,N>` and a pair of functions to pack and unpack from and to bouned and unbounded strings: `PackString` and `UnpackString`
 
 ### How do I use it?
-Just copy the header [`StringN.h`](String.h) to your C++ project folder, include it in your source files, and start packing and unpacking strings:
+Just copy the header [`StringN.h`](StringN.h) to your C++ project folder, include it in your source files, and start packing and unpacking strings:
 
 ```c++
 #include "StringN.h"
@@ -23,6 +23,9 @@ int main(){
 	assert("Hello" == t);           // Check.
 }
 ```
+### Examples
+- (Previous example)[StringNTest.cpp]
+- [StringNDriver.cpp]
 
 ## BlockStream
 Using the standard functions `read` and `write` can be cumbersome and requieres the use of low level concepts. These are example statements that use those two funcitons:
@@ -47,7 +50,7 @@ ReadBlock(in, block);
 ```
 
 ### How do I use it?
-Just copy the header `BlockStream.h` to your C++ project folder, include it in your source files, and start writing and reading blocks to and from file streams.
+Just copy the header [`BlockStream.h`](BlockStream.h) to your C++ project folder, include it in your source files, and start writing and reading blocks to and from file streams.
 
 ```c++
 #include "BlockStream.h"
@@ -75,6 +78,15 @@ int main(){
 	assert( 180 == steelBlue.blue  );
 }
 ```
+### Examples
+- (Previous example)[BlockStreamTest.cpp]
+- [BlockStreamriver.cpp]
+
+## StringN and BlockStream Together
+When combined, these headers allow easy manipulation of streams of fixed size records with bounded strings in them:
+
+- [BlockStreamAndStringNTest.cpp]
+- [BlockStreamAndStringNDriver.cpp]
 
 # (ES) ¿Qué son StringN y BlockStream?
 Son dos headers que proveen abstracciones para manipular *Cadenas Acotadas* y *Flujo de Bloques* en C++ con una sintaxis clara.
@@ -89,7 +101,7 @@ El tipo standar `std::string` provee cadenas con largo dinámico y no acotado, p
 El tipo `String<N>` provee una solución, basada en un tipo template que envuelve un  `std::array<char,N>` y en un par de funciones para empaquetar y desempaquetar desde y hacia cadenas acotadas y no acotadas: `PackString` y `UnpackString`
 
 ### ¿Cómo lo uso?
-Con simplemente copiar el encabezado `StringN.h` a tu carpeta de proyecto C++, e incluirlo en tus archivos fuente, ya es posible empaquetar y desempaquetas cadenas.
+Con simplemente copiar el encabezado [`StringN.h`](StringN.h) a tu carpeta de proyecto C++, e incluirlo en tus archivos fuente, ya es posible empaquetar y desempaquetas cadenas.
 
 ```c++
 #include "StringN.h"
@@ -101,6 +113,10 @@ int main(){
 	assert("Hello" == t);           // Check.
 }
 ```
+### Ejemplos
+- (Ejemplo anterior)[StringNTest.cpp]
+- (StringNDriver.cpp)[StringNDriver.cpp]
+
 
 ## BlockStream
 Usar las funciones estdándar `read` y `write` puede ser incómodo y requiere el uso de conceptos de bajo nivel. Estos son ejemplos de sentencias que usan esas dos funciones:
@@ -125,7 +141,7 @@ ReadBlock(in, block);
 ```
 
 ### ¿Cómo lo uso?
-Con simplemente copiar el encabezado `BlockStream.h` a su carpeta de proyecto C++, e incluirlo en sus archivos fuente, ya es posible escribir y leer bloques a y desde flujos.
+Con simplemente copiar el encabezado [`BlockStream.h`](BlockStream.h) a su carpeta de proyecto C++, e incluirlo en sus archivos fuente, ya es posible escribir y leer bloques a y desde flujos.
 
 ```c++
 #include "BlockStream.h"
@@ -153,3 +169,13 @@ int main(){
 	assert( 180 == steelBlue.blue  );
 }
 ```
+
+### Ejemplos
+- (Previous example)[BlockStreamTest.cpp]
+- [BlockStreamriver.cpp]
+
+## StringN y BlockStream Juntos
+Cuando se combinan, estos encabezados permiten una manipulación fácil de flujos de registros de tamaño fijo con cadenas acotadas.
+
+- [BlockStreamAndStringNTest.cpp]
+- [BlockStreamAndStringNDriver.cpp]
