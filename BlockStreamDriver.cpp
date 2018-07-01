@@ -1,10 +1,10 @@
-/* Escribe y lee archivo de registros, y muestra los cursos de 
- * primer año con cantidad de alumnos mayor a 25.
- * 20151108
- * Esp. Ing. José María Sola
- * Profesor
- * UTN FRBA
- */
+/* BlockStreamDriver.cpp
+Escribe y lee archivo de registros, y muestra los cursos de 
+primer año con cantidad de alumnos mayor a 25.
+2015-11-08 - 2018-06-30
+Esp. Ing. José María Sola
+Profesor
+UTN FRBA */
 
 #include <iostream>
 #include "BlockStream.h"

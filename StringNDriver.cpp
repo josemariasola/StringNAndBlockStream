@@ -1,5 +1,5 @@
-/* StringPackerDriver.cpp
-2015-11-08 - 2018-06-03
+/* StringNDriver.cpp
+2015-11-08 - 2018-06-30
 Esp. Ing. José María Sola
 Profesor
 UTN FRBA */

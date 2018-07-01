@@ -1,10 +1,10 @@
-/* Escribe y lee archivo de registros con cadenas, 
- * muestra los empleados con legajo mayor a 10.
- * 20151108
- * Esp. Ing. José María Sola
- * Profesor
- * UTN FRBA
- */
+/* BlockStreamAndStringNDriver.cpp
+Escribe y lee archivo de registros con cadenas de tamaño acotado, 
+muestra los empleados con legajo mayor a 10.
+2015-11-08 - 2018-06-30
+Esp. Ing. José María Sola
+Profesor
+UTN FRBA */
 
 #include <iostream>
 #include "BlockStream.h"
