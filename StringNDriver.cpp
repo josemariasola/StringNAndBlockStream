@@ -61,7 +61,7 @@ int main(){
 
 		{ // String<N> igual de largo que string
 			string s{"abcd"}; // string type
-			String<7> a = PackString(s); // array<char,7> 
+			String<4> a = PackString(s); // array<char,4> 
 			auto t{UnpackString(a)};
 			assert(s == t);
 			PrintSizesAndContents(s,a,t);
