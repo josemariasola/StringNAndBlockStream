@@ -11,7 +11,7 @@ The standard type `std::string` provide strings with dynamic and unbounded lengt
 The type `String<N>` provides a solution, based upon a template type that wraps a `std::array<char,N>` and a pair of functions to pack and unpack from and to bouned and unbounded strings: `PackString` and `UnpackString`
 
 ### How do I use it?
-Just copy the header `StringN.h` to your C++ project folder, include it in your source files, and start packing and unpacking strings:
+Just copy the header [`StringN.h`](String.h) to your C++ project folder, include it in your source files, and start packing and unpacking strings:
 
 ```c++
 #include "StringN.h"
