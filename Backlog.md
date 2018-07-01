@@ -1,9 +1,10 @@
 # Backlog
 ## Requested
 ### 2.0.0 (High priority)
-- [ ] !! Strings and Streams.adoc: Write it.
+- [ ] New release.
+- [ ] Write release notes.
+### 2.1.0 (Medium priority)
 - [ ] Transalte readme comments to ES.
-### 2.1.0 (Medium)
 - [ ] `Makefile`: build, test, runexampls, clean install, uninstall.
 - [ ] Add static_assert(std::is_pod<T>::value, "T must be POD");
 	or
@@ -13,7 +14,7 @@
 	En este contexto bloque es un tipo de valor que no contenga referencias o punteros. 
 - [ ] Add folders: `src`, `test`, `examples`, `project(?)`.
 - [ ] Add Continuous Integration.
-### 3.0.0 (Low)
+### 3.0.0 (Low priority)
 - [ ] Add to Read and Write optional parameter n that defaults to 1.
 - [ ] Make `<<` and `>>` part of BlockStram.h, right now I can't work arround the ambiguities: `o<<block` `o<<aChar` `o<<aString`.
 - [ ] Incorporate full StringN type.
