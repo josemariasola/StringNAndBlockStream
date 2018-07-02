@@ -20,9 +20,9 @@ int main(){
 
 	std::ofstream out{filename, std::ios::binary};
 
-	WriteBlock(out, Person{10, "Bruce"});  // Wayne
-	WriteBlock(out, Person{11, "Clark"});  // Kent
-	WriteBlock(out, Person{12, "Joseph"}); // Dredd
+	WriteBlock(out, Person{10, PackString("Bruce")});  // Wayne
+	WriteBlock(out, Person{11, PackString("Clark")});  // Kent
+	WriteBlock(out, Person{12, PackString("Joseph")}); // Dredd
 
 	out.close();
 	

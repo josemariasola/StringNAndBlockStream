@@ -19,7 +19,7 @@ int main(){
 	
 	// Write
 	std::ofstream out{filename, std::ios::binary};   // Crear archivo y conectar flujo en modo binario
-	WriteBlock(out, Person{10, "León"}); // Escribir en el flujo out una Persona.
+	WriteBlock(out, Person{10, PackString("León")}); // Escribir en el flujo out una Persona.
 	out.close();                                     // Cerrar conexión.
 	
 	// Read

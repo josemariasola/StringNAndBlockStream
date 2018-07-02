@@ -23,12 +23,12 @@ class String
 		String() = default;
 
 		// C++ implicit conversion shenanigans
-		String(const char* theCString)
+		explicit String(const char* theCString)
 		{
 			*this = std::string{ theCString };
 		}
 
-		String(const std::string& theString)
+		explicit String(const std::string& theString)
 		{
 			*this = theString;
 		}
@@ -74,6 +74,21 @@ class String
 
 	private:
 		ContainerType _impl;
+};
+
+class PackString
+{
+	public:
+		explicit PackString(const std::string& unpackedString) : _ref{ unpackedString } { }
+
+		template<std::size_t N>
+		operator String<N>() const
+		{
+			return String<N>{ _ref };
+		}
+
+	private:
+		const std::string& _ref;
 };
 
 template<std::size_t N>
