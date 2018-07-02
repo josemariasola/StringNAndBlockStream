@@ -12,7 +12,7 @@ UTN FRBA */
 
 // Type: String<N>
 template<std::size_t N>
-class String
+struct String
 {
 	private:
 		using ContainerType = std::array<char, N>;
@@ -76,7 +76,7 @@ class String
 		ContainerType _impl;
 };
 
-class PackString
+struct PackString
 {
 	public:
 		explicit PackString(const std::string& unpackedString) : _ref{ unpackedString } { }
