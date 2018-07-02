@@ -33,6 +33,9 @@ class String
 			*this = theString;
 		}
 
+		char& at(std::size_t pos) { return _impl.at(pos); }
+		const char& at(std::size_t pos) const { return _impl.at(pos); }
+
 		inline operator std::string() const
 		{
 			std::string s;
