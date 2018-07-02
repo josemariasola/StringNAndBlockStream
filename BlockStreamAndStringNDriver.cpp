@@ -32,7 +32,7 @@ int main(){
 		if( p.id > 10 )
 			std::cout
 				<< p.id << ", "
-				<< p.name.UnpackString()
+				<< UnpackString(p.name)
 				<< '\n';
 
 	in.close();

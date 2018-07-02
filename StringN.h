@@ -60,16 +60,6 @@ class String
 			return *this;
 		}
 
-		inline std::string UnpackString() const
-		{
-			return std::string{ *this };
-		}
-
-		inline bool operator==(const std::string& theString) const
-		{
-			return theString == std::string{ *this };
-		}
-
 		auto begin()        -> ContainerIterator      { return _impl.begin(); }
 		auto end()          -> ContainerIterator      { return _impl.end(); }
 
@@ -82,5 +72,23 @@ class String
 	private:
 		ContainerType _impl;
 };
+
+template<std::size_t N>
+inline std::string UnpackString(const String<N>& packedString)
+{
+	return std::string{ packedString };
+}
+
+template<std::size_t N>
+inline bool operator==(const String<N>& packedString, const std::string& theString)
+{
+	return theString == std::string{ packedString };
+}
+
+template<std::size_t N>
+inline bool operator==(const std::string& theString, const String<N>& packedString)
+{
+	return packedString == theString;
+}
 
 #endif
