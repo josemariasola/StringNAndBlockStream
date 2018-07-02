@@ -17,19 +17,19 @@ int main(){
 	{ // Tests
 		{ // array más corto que string
 			std::array<char,5> a = PackString("Hello, World!");
-			assert( UnpackString(a) == "Hello" );
+			assert( "Hello" == UnpackString(a) );
 		}
 		{ // String<N> más corto que string
 			String<4> s = PackString("Hello, World!");
-			assert( UnpackString(s) == "Hell" );
+			assert( "Hell" == UnpackString(s) );
 		}
 		{ // String<N> igual de largo que string
 			String<13> s = PackString("Hello, World!");
-			assert( UnpackString(s) == "Hello, World!" );
+			assert( "Hello, World!" == UnpackString(s) );
 		}
 		{ // String<N> más largo que string
 			String<42> s = PackString("Hello, World!");
-			assert( UnpackString(s) == "Hello, World!" );
+			assert( "Hello, World!" == UnpackString(s) );
 		}
 	}
 		
