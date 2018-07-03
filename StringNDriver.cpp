@@ -15,15 +15,15 @@ void PrintSizesAndContents(std::string, String<N>, std::string);
 int main(){
 	{ // Tests
 		{ // String<N> más corto que string
-			String<4> s{ "Hello, World!" };
+			String<4> s{ PackString("Hello, World!") };
 			assert( "Hell" == s );
 		}
 		{ // String<N> igual de largo que string
-			String<13> s{ "Hello, World!" };
+			String<13> s{ PackString("Hello, World!") };
 			assert( "Hello, World!" == s );
 		}
 		{ // String<N> más largo que string
-			String<42> s{ "Hello, World!" };
+			String<42> s{ PackString("Hello, World!") };
 			assert( "Hello, World!" == s );
 		}
 	}
@@ -34,14 +34,14 @@ int main(){
 
 		{ // String<N>
 			string    s{"Hello, World!"};
-			String<5> a{ s };
+			String<5> a{ PackString(s) };
 			string    t{a};
 			assert( t == "Hello" );
 		}
 
 		{ // String<N> más corto que string
 			string s{"Texto de largo mayor a límite de registro."};
-			String<12> a{ s };
+			String<12> a{ PackString(s) };
 			string t{a}; // desempaque todo lo que se pudo guardar
 			assert(s.compare(0, 12, t) == 0);
 			PrintSizesAndContents(s,a,t);
@@ -49,7 +49,7 @@ int main(){
 
 		{ // String<N> igual de largo que string
 			string s{"abcd"}; // string type
-			String<4> a{ s };
+			String<4> a{ PackString(s) };
 			string t{a};
 			assert(s == t);
 			PrintSizesAndContents(s,a,t);
@@ -57,7 +57,7 @@ int main(){
 		
 		{ // String<N> más largo que string
 			string s{"xyz"};
-			String<7> a{ s };
+			String<7> a{ PackString(s) };
 			string t{a};
 			assert(s == t);
 			PrintSizesAndContents(s,a,t);

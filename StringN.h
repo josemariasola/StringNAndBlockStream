@@ -10,6 +10,17 @@ UTN FRBA */
 #include <string>
 #include <array>
 
+struct PackString
+{
+	template<std::size_t> friend struct String;
+
+	public:
+		explicit PackString(std::string unpackedString) : _string{ std::move(unpackedString) } { }
+
+	private:
+		std::string _string;
+};
+
 // Type: String<N>
 template<std::size_t N>
 struct String
@@ -22,19 +33,10 @@ struct String
 	public:
 		String() = default;
 
-		// C++ implicit conversion shenanigans
-		explicit String(const char* theCString)
+		String(PackString&& packString)
 		{
-			*this = std::string{ theCString };
+			*this = std::move(packString);
 		}
-
-		explicit String(const std::string& theString)
-		{
-			*this = theString;
-		}
-
-		char& at(std::size_t pos) { return _impl.at(pos); }
-		const char& at(std::size_t pos) const { return _impl.at(pos); }
 
 		inline operator std::string() const
 		{
@@ -49,8 +51,9 @@ struct String
 			return s;
 		}
 
-		inline String<N>& operator=(const std::string& theString)
+		inline String<N>& operator=(PackString&& packString)
 		{
+			const auto& theString = packString._string;
 			auto len = theString.length();
 			if (len < N)
 			{
@@ -62,6 +65,9 @@ struct String
 
 			return *this;
 		}
+
+		char& at(std::size_t pos) { return _impl.at(pos); }
+		const char& at(std::size_t pos) const { return _impl.at(pos); }
 
 		auto begin()        -> ContainerIterator      { return _impl.begin(); }
 		auto end()          -> ContainerIterator      { return _impl.end(); }
@@ -76,21 +82,6 @@ struct String
 		ContainerType _impl;
 };
 
-struct PackString
-{
-	public:
-		explicit PackString(const std::string& unpackedString) : _ref{ unpackedString } { }
-
-		template<std::size_t N>
-		operator String<N>() const
-		{
-			return String<N>{ _ref };
-		}
-
-	private:
-		const std::string& _ref;
-};
-
 template<std::size_t N>
 inline std::string UnpackString(const String<N>& packedString)
 {
@@ -100,7 +91,7 @@ inline std::string UnpackString(const String<N>& packedString)
 template<std::size_t N>
 inline bool operator==(const String<N>& packedString, const std::string& theString)
 {
-	return theString == std::string{ packedString };
+	return theString == UnpackString(packedString);
 }
 
 template<std::size_t N>
