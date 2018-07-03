@@ -55,13 +55,10 @@ struct String
 		{
 			const auto& theString = packString._string;
 			auto len = theString.length();
+
+			theString.copy(_impl.data(), std::min(len, N));
 			if (len < N)
-			{
-				theString.copy(_impl.data(), len);
 				_impl.at(len) = '\0'; // from _impl.at(len+1) to _impl.at(N-1) undefined content.
-			}
-			else
-				theString.copy(_impl.data(), N);
 
 			return *this;
 		}
