@@ -29,14 +29,13 @@ int main(){
 	}
 
 	{ // Ejemplos
-		using std::array;
 		using std::string;
 
 		{ // String<N>
 			string    s{"Hello, World!"};
 			String<5> a{ PackString(s) };
 			string    t{a};
-			assert( t == "Hello" );
+			assert( "Hello" == t );
 		}
 
 		{ // String<N> más corto que string

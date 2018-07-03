@@ -31,6 +31,6 @@ int main(){
 	remove(filename); // c++17 // std::filesystem::remove(filename); // Remover el archivo de prueba
 	
 	// Test: Verificar que leemos lo que habíamos escrito
-	assert(     10 == p.id                 ); 
-	assert( "León" == UnpackString(p.name) );
+	assert(     10 == p.id   );
+	assert( "León" == p.name );
 }
