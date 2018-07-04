@@ -31,7 +31,7 @@ struct String
 		using ContainerConstIterator = typename ContainerType::const_iterator;
 
 	public:
-		String() = default;
+		String() : String{ PackString{ std::string{ } } } { }
 
 		String(PackString&& packString)
 		{
