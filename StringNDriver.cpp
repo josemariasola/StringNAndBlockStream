@@ -5,7 +5,6 @@ Profesor
 UTN FRBA */
 
 #include <string>
-#include <array>
 #include <iostream>
 #include <cassert>
 #include "StringN.h"
@@ -15,62 +14,50 @@ void PrintSizesAndContents(std::string, String<N>, std::string);
 
 int main(){
 	{ // Tests
-		{ // array más corto que string
-			std::array<char,5> a = PackString("Hello, World!");
-			assert( "Hello" == UnpackString(a) );
-		}
 		{ // String<N> más corto que string
-			String<4> s = PackString("Hello, World!");
-			assert( "Hell" == UnpackString(s) );
+			String<4> s{ PackString("Hello, World!") };
+			assert( "Hell" == s );
 		}
 		{ // String<N> igual de largo que string
-			String<13> s = PackString("Hello, World!");
-			assert( "Hello, World!" == UnpackString(s) );
+			String<13> s{ PackString("Hello, World!") };
+			assert( "Hello, World!" == s );
 		}
 		{ // String<N> más largo que string
-			String<42> s = PackString("Hello, World!");
-			assert( "Hello, World!" == UnpackString(s) );
+			String<42> s{ PackString("Hello, World!") };
+			assert( "Hello, World!" == s );
 		}
 	}
-		
+
 	{ // Ejemplos
-		using std::array;
 		using std::string;
 
 		{ // String<N>
 			string    s{"Hello, World!"};
-			String<5> a = PackString(s);
-			string    t{UnpackString(a)};
-			assert( t == "Hello" );
-		}
-		
-		{ // array<char,N>
-			string        s{"Hello, World!"};
-			array<char,5> a = PackString(s);
-			string        t{UnpackString(a)};
-			assert( t == "Hello");
+			String<5> a{ PackString(s) };
+			string    t{a};
+			assert( "Hello" == t );
 		}
 
 		{ // String<N> más corto que string
 			string s{"Texto de largo mayor a límite de registro."};
-			String<12> a = PackString(s); // array<char,12>
-			auto t{UnpackString(a)}; // desempaque todo lo que se pudo guardar
+			String<12> a{ PackString(s) };
+			string t{a}; // desempaque todo lo que se pudo guardar
 			assert(s.compare(0, 12, t) == 0);
 			PrintSizesAndContents(s,a,t);
 		}
 
 		{ // String<N> igual de largo que string
 			string s{"abcd"}; // string type
-			String<4> a = PackString(s); // array<char,4> 
-			auto t{UnpackString(a)};
+			String<4> a{ PackString(s) };
+			string t{a};
 			assert(s == t);
 			PrintSizesAndContents(s,a,t);
 		}
 		
 		{ // String<N> más largo que string
 			string s{"xyz"};
-			array<char,7> a = PackString(s);
-			auto t{UnpackString(a)};
+			String<7> a{ PackString(s) };
+			string t{a};
 			assert(s == t);
 			PrintSizesAndContents(s,a,t);
 		}

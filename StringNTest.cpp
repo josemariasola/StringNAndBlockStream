@@ -20,7 +20,7 @@ int main(){
 		int i;
 	};
 	Color c{PackString("Red")};
-	assert("Red" == UnpackString(c.s));
+	assert("Red" == c.s);
 	c.s = PackString("Blue");
-	assert("Blu" == UnpackString(c.s));
+	assert("Blu" == c.s);
 }
