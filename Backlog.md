@@ -1,4 +1,7 @@
 # Backlog
+## To Refine
+- [ ] string litrals "Hello"s.
+- [ ] Braces for initialization, no equals.
 ## Requested
 ### 2.1.0 (Medium priority)
 - [ ] Continue reviews of Silva's pull requests.
